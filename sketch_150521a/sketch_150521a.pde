@@ -2,26 +2,44 @@
 //Max Kingsley
 //May 21, 2015
 
+int[] slot = new int [3];
 int score = 0;
+int one   = 0;
+int two   = 0;
+int three = 0;
+
 
 void setup() {
 
   background(250);
   size(600, 600);
+  smooth();
 
   score = score + 50;
 }
 
 void draw() {
 
-  float 1_prob = 0.5;
-  float 2_prob = 0.2;
-  float 3_prob = 0.15;
-  float 4_prob = 0.1;
-  float 5_prob = 0.05;
+  fill(250,0,0);
   
-  float num = random (1);
+  float tri_prob = 0.50; 
+  float ellipse_prob = 0.30; 
+  float rect_prob = 0.20;  
+  float num = random(1);  
+  
 
+  if (num < tri_prob) {
+  triangle(200,225,175,275,275,275);
+  
+  } else if (num < ellipse_prob + tri_prob) {
+  ellipse(200,250,50,50);
+  
+  } else {
+  rect(175,225,50,50);
+  }
+  
+  
+  
   fill(50, 150, 200);
   beginShape();
   vertex(100, 50);
@@ -61,14 +79,42 @@ void draw() {
   textSize(40);
   text("Score: " + score, 200, 400);
 
-  if (score == 0) {
+
+  if (score <= 0) {
     textSize(80);
     text("GAME OVER", 50, 300);
+  
   }
+  
+
 }
 
 void mousePressed() {
 
-  score = score -5;
+  
+  float num = random(1);
+  
+  score = score - 5;
+  
+
+  //if (mousePressed);
+ // {
+    
+    //  if (num <= 0.5){
+  //  ellipse(200,250,75,75);
+    
+ // }
+  //if (num <= 0.8) {
+    
+  //  rect(275,225,50,50);
+    
+  //}
+    
+//one = random(1);
+//two = random(1);
+//three = random(1);
+    
+ // }
+  
 }
 
